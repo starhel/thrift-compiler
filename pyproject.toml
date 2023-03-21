@@ -1,15 +1,13 @@
 [build-system]
 requires = [
-    "setuptools>=67",
-    "setuptools_scm[toml]>=6.2",
-    "scikit-build>=0.13",
-    "cmake>=3.25",
+    "scikit_build_core[rich]",
 ]
-build-backend = "setuptools.build_meta"
+build-backend = "scikit_build_core.build"
 
 [project]
 name = "thrift-compiler"
 description = "Thrift binary to compile .thrift files"
+version = "0.13.0"
 authors = [
     {name = "Adrian Stachlewski", email = "starhel.github@gmail.com"}
 ]
@@ -23,4 +21,8 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Topic :: Utilities"
 ]
-dynamic = ["version"]
+
+[tool.scikit-build]
+minimum-version = "0.2"
+cmake.minimum-version = "3.25"
+wheel.py-api = "py3"

@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.25)
 project(ThriftPythonDistributions NONE)
 
 include(ExternalProject)
-include(GNUInstallDirs)
 include(${CMAKE_SOURCE_DIR}/ThriftUrls.cmake)
 
 set(THRIFT_SOURCE_DIR "${CMAKE_BINARY_DIR}/thrift-src")
@@ -21,7 +20,7 @@ IF (WIN32)
         BUILD_COMMAND ""
         INSTALL_COMMAND ""
     )
-    install(PROGRAMS "${THRIFT_SOURCE_DIR}/thrift.exe" DESTINATION ${CMAKE_INSTALL_BINDIR})
+    install(PROGRAMS "${THRIFT_SOURCE_DIR}/thrift.exe" DESTINATION ${SKBUILD_SCRIPTS_DIR})
 ELSE()
     ExternalProject_add(Thrift-unix-download
         SOURCE_DIR "${THRIFT_SOURCE_DIR}"
@@ -35,5 +34,5 @@ ELSE()
         BUILD_IN_SOURCE 1
         INSTALL_COMMAND $(MAKE) install-strip
     )
-    install(PROGRAMS "${THRIFT_COMPILED_DIR}/bin/thrift" DESTINATION ${CMAKE_INSTALL_BINDIR})
+    install(PROGRAMS "${THRIFT_COMPILED_DIR}/bin/thrift" DESTINATION ${SKBUILD_SCRIPTS_DIR})
 ENDIF()
