@@ -1,28 +1,28 @@
 [build-system]
 requires = [
-    "scikit_build_core[rich]",
+    "scikit-build-core>=0.10",
 ]
 build-backend = "scikit_build_core.build"
 
 [project]
 name = "thrift-compiler"
 description = "Thrift binary to compile .thrift files"
-version = "0.13.0"
+version = "0.21.0"
 authors = [
     {name = "Adrian Stachlewski", email = "starhel.github@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.7"
-license = {file = "LICENSE"}
+license = {text = "MIT AND Apache-2.0"}
 keywords = ["thrift", "compiler", "build"]
 classifiers = [
     "Development Status :: 3 - Alpha ",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Topic :: Utilities"
 ]
 
 [tool.scikit-build]
-minimum-version = "0.2"
-cmake.minimum-version = "3.25"
+minimum-version = "build-system.requires"
 wheel.py-api = "py3"
+cmake.version = ">=3.25"
+cmake.args = ["-G=Unix Makefiles"]

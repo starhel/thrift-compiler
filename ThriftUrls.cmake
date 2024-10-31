@@ -1,4 +1,4 @@
-set(unix_source_url          "http://archive.apache.org/dist/thrift/0.13.0/thrift-0.13.0.tar.gz")
-set(unix_sha256              "7ad348b88033af46ce49148097afe354d513c1fca7c607b59c33ebb6064b5179")
-set(windows_binary_url       "http://archive.apache.org/dist/thrift/0.13.0/thrift-0.13.0.exe")
-set(windows_sha256           "92753ef860304eb6b3fdbbb3e07ae23b30827194d3c2a072bb4cf7a65be87693")
+set(unix_source_url          "https://archive.apache.org/dist/thrift/0.21.0/thrift-0.21.0.tar.gz")
+set(unix_sha256              "9a24f3eba9a4ca493602226c16d8c228037db3b9291c6fc4019bfe3bd39fc67c")
+set(windows_binary_url       "https://archive.apache.org/dist/thrift/0.21.0/thrift-0.21.0.exe")
+set(windows_sha256           "e0885da0091e788f2ac9392c54a18ebd2d5526255803ffba10db9a3b4f536f8a")
