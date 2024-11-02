@@ -22,7 +22,12 @@ jobs:
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
-          CIBW_BUILD: cp312-manylinux_x86_64
+          CIBW_BUILD: |
+            cp311-macosx_x86_64
+            cp311-macosx_arm64
+            cp311-win_amd64
+            cp311-manylinux_x86_64
+            cp311-musllinux_x86_64
           CIBW_TEST_REQUIRES: tox
           CIBW_TEST_COMMAND: "tox -c {project}/tox.ini -e py3 --installpkg {wheel}"
           CIBW_ENVIRONMENT: ACLOCAL_PATH="/usr/share/aclocal"
