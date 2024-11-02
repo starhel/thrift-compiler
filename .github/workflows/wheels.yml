@@ -19,6 +19,7 @@ jobs:
 
   build_wheels:
     name: Build ${{ matrix.build }}${{ matrix.arch }} wheels on ${{ matrix.os }}
+    needs: build_sdist
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -36,10 +37,10 @@ jobs:
           - os: ubuntu-latest
             arch: "i686"
             build: "musllinux_"
-          - os: windows-2019
+          - os: windows-latest
             arch: "AMD64"
             build: ""
-          - os: windows-2019
+          - os: windows-latest
             arch: "x86"
             build: ""
           - os: macos-13  # macOS / Intel
@@ -50,10 +51,15 @@ jobs:
             build: ""
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: cibw-sdist
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.21
+        with:
+          package-dir: "$(ls thrift_compiler-*.tar.gz)"
+          output-dir: "wheelhouse"
         env:
           CIBW_ARCHS: "${{ matrix.arch }}"
           CIBW_BUILD: "cp313-${{ matrix.build }}*"

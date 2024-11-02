@@ -37,7 +37,7 @@ ELSE()
         URL_HASH "SHA256=${source_sha256}"
         DOWNLOAD_DIR ""
         DOWNLOAD_EXTRACT_TIMESTAMP 1
-        CONFIGURE_COMMAND "${CMAKE_SOURCE_DIR}/configure_thrift.sh" ${THRIFT_SOURCE_DIR} ${THRIFT_COMPILED_DIR}
+        CONFIGURE_COMMAND autoreconf -i COMMAND ./bootstrap.sh COMMAND ./configure --disable-debug --disable-libs --prefix "${THRIFT_COMPILED_DIR}"
         BUILD_COMMAND $(MAKE)
         BUILD_IN_SOURCE 1
         INSTALL_COMMAND $(MAKE) install-strip

@@ -36,6 +36,7 @@ manylinux-i686-image = "manylinux2014"
 
 [tool.cibuildwheel.linux.environment]
 ACLOCAL_PATH = "/usr/share/aclocal"
+CMAKE_BUILD_PARALLEL_LEVEL = "$(nproc)"
 
 [tool.cibuildwheel.macos]
 before-all = "brew install autoconf automake libtool bison"
@@ -44,3 +45,4 @@ before-all = "brew install autoconf automake libtool bison"
 PATH = "$(brew --prefix bison)/bin:$PATH"
 LDFLAGS = "-L$(brew --prefix bison)/lib"
 CXXFLAGS = "-Wno-inconsistent-missing-override"
+CMAKE_BUILD_PARALLEL_LEVEL = "$(sysctl -n hw.logicalcpu)"
