@@ -6,5 +6,6 @@ SRC="$1"
 PREFIX="$2"
 
 cd "$SRC" || exit
+autoconf --version
 ./bootstrap.sh
 ./configure --disable-libs --prefix "$PREFIX"
