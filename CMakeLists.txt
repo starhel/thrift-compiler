@@ -18,7 +18,7 @@ IF (WIN32)
         CONFIGURE_COMMAND ""
         BUILD_COMMAND ""
         INSTALL_COMMAND ""
-    )``
+    )
     ExternalProject_add(Thrift-windows-download
 	    DOWNLOAD_DIR "${THRIFT_SOURCE_DIR}"
 	    DOWNLOAD_NAME "thrift.exe"
