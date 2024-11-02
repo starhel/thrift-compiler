@@ -25,6 +25,7 @@ jobs:
           CIBW_BUILD: cp312-manylinux_x86_64
           CIBW_TEST_REQUIRES: tox
           CIBW_TEST_COMMAND: "tox -e py3"
+          CIBW_ENVIRONMENT: ACLOCAL_PATH="/usr/share/aclocal"
 
       - uses: actions/upload-artifact@v4
         with:
