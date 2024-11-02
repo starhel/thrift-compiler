@@ -9,4 +9,4 @@ cd "$SRC" || exit
 autoconf --version
 autoreconf -i
 ./bootstrap.sh
-./configure --disable-libs --prefix "$PREFIX"
+./configure --disable-debug --disable-libs --prefix "$PREFIX"

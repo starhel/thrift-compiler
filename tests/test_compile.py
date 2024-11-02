@@ -5,6 +5,7 @@ from textwrap import dedent
 
 
 def test_compile(tmp_path):
+    # TODO: Test for 64-bit
     thrift_text = dedent("""\
         const string var_str = "1.0"
         const i32 var_int = 7
