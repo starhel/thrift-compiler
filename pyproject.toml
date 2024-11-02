@@ -26,3 +26,19 @@ minimum-version = "build-system.requires"
 wheel.py-api = "py3"
 cmake.version = ">=3.25"
 cmake.args = ["-G=Unix Makefiles"]
+
+[tool.cibuildwheel]
+build-verbosity = 1
+test-command = "tox -c {project}/tox.ini -e py3 --installpkg {wheel}"
+test-requires = ["tox>=4"]
+
+[tool.cibuildwheel.linux.environment]
+ACLOCAL_PATH = "/usr/share/aclocal"
+
+[tool.cibuildwheel.macos]
+before-all = "brew install autoconf automake libtool bison"
+
+[tool.cibuildwheel.macos.environment]
+PATH = "$(brew --prefix bison)/bin:$PATH"
+LDFLAGS = "-L$(brew --prefix bison)/lib"
+CXXFLAGS = "-Wno-inconsistent-missing-override"
