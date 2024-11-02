@@ -24,7 +24,7 @@ jobs:
         env:
           CIBW_BUILD: cp312-manylinux_x86_64
           CIBW_TEST_REQUIRES: tox
-          CIBW_TEST_COMMAND: "tox -c {project}/tox.ini -e py3"
+          CIBW_TEST_COMMAND: "tox -c {project}/tox.ini -e py3 --installpkg {wheel}"
           CIBW_ENVIRONMENT: ACLOCAL_PATH="/usr/share/aclocal"
           CIBW_BUILD_VERBOSITY: 1
 
