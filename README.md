@@ -1,5 +1,5 @@
 # thrift-compiler
-Python package with Thrift compiler
+Python package with Thrift compiler.
 
 ## Building on Ubuntu
 ```bash
