@@ -37,6 +37,9 @@ jobs:
           - os: ubuntu-latest
             arch: "i686"
             build: "musllinux_"
+          - os: ubuntu-latest
+            arch: "aarch64"
+            build: "manylinux_"
           - os: windows-latest
             arch: "AMD64"
             build: ""
