@@ -33,6 +33,7 @@ test-command = "tox -c {project}/tox.ini -e py3 --installpkg {wheel}"
 test-requires = ["tox>=4"]
 manylinux-x86_64-image = "manylinux_2_28"
 manylinux-i686-image = "manylinux2014"
+manylinux-aarch64-image = "manylinux_2_28"
 
 [tool.cibuildwheel.linux.environment]
 ACLOCAL_PATH = "/usr/share/aclocal"
